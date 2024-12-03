@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>test area modal dialog</title>
+  <link rel="stylesheet" href="testcss">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+dialog.testdia::backdrop{
+  background-color: rgba(224, 42, 42, 0.356);
+}
+
+@media (min-width:766px){
+.respo{
+  display: block;
+}
+}
+@media (max-width:766px){
+.respo{
+  display: block;
+}
+}
+/*
+  .overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background:rgba(0, 0, 0, 0.5);
+    z-index: 9;
+  }
+  .modal.open,
+  .overlay.open{
+    display: block;
+  }
+  .modal{
+    display: none;
+    position: fixed;
+    padding: 0.5rem;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background:#fff;
+    border-radius: 0.25rem;
+    z-index: 10;
+  }
+    */
+</style>
+
+</head>
+
+<body>
+
+  <button data-open-modal>open</button>
+  <div class="respo">
+  <dialog data-modal class="testdia">
+    <dir>test modal</dir>
+    <button data-close-modal>close</button>
+  </dialog>
+</div>
+<!--
+<button data-overlay class="overlay"></button>
+<div data-modal class="modal">
+  <dir>test modal</dir>
+  <button data-close-modal>close</button>
+</div>
+-->
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  const openButton = document.querySelector("[data-open-modal]")
+  const closeButton = document.querySelector("[data-close-modal]")
+  const modal = document.querySelector("[data-modal]")
+  openButton.addEventListener("click", () => {
+   modal.showModal()
+  })
+
+  closeButton.addEventListener("click", () => {
+modal.close()
+  })
+
+/*
+  const overlay = document.querySelector("[data-overlay]")
+  openButton.addEventListener("click", () => {
+    modal.classList.add("open")
+    overlay.classList.add("open")
+  })
+
+  closeButton.addEventListener("click", () => {
+    modal.classList.remove("open")
+    overlay.classList.remove("open")
+  })
+
+  */
+</script>
+
+
+</body>
+
+</html>
